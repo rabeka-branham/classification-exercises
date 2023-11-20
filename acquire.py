@@ -1,8 +1,9 @@
-def get_titanic_data():
-    import os
-    from env import get_db_url
-    import pandas as pd
+import os
+from env import get_db_url
+import pandas as pd
 
+
+def get_titanic_data():
     filename = 'titanic.csv'
     
     if os.path.isfile(filename):
@@ -16,10 +17,6 @@ def get_titanic_data():
         return df
 
 def get_iris_data(): 
-    import os
-    from env import get_db_url
-    import pandas as pd
-
     filename = 'iris.csv'
     
     if os.path.isfile(filename):
@@ -33,10 +30,6 @@ def get_iris_data():
         return df
     
 def get_telco_data():
-    import os
-    from env import get_db_url
-    import pandas as pd
-    
     filename = 'telco.csv'
     
     if os.path.isfile(filename):
