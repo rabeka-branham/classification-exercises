@@ -17,3 +17,14 @@ def prep_iris(dataframe):
     df = dataframe.drop(columns = ['species_id', 'measurement_id'])
     df = df.rename(columns={'species_name':'species'})
     return df
+
+def prep_titanic(dataframe):
+    df = dataframe.drop(columns=['embarked','class','deck','age'])
+    df.pclass = df.pclass.astype(object)
+    df.embark_town = df.embark_town.fillna('Southampton')
+    return df
+
+def prep_telco(dataframe):
+    df = dataframe.drop(columns=['payment_type_id','internet_service_type_id','contract_type_id'])
+    df.internet_service_type = df.internet_service_type.fillna('No internet service')
+    return df
