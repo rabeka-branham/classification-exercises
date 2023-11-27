@@ -8,11 +8,11 @@ def check_file_exists(filename, query, url):
     '''
     if os.path.exists(filename):
         print('File exists - reading CSV file')
-        df = pd.read_csv(filename, index_col=0)
+        df = pd.read_csv(filename)
     else:
         print('File does not exist - creating CSV file')
         df = pd.read_sql(query,url)
-        df.to_csv(filename, index=0)
+        df.to_csv(filename)
     return df
 
 def get_titanic_data():
