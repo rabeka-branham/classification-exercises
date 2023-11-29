@@ -8,7 +8,7 @@ def check_file_exists(filename, query, url):
     '''
     if os.path.exists(filename):
         print('File exists - reading CSV file')
-        df = pd.read_csv(filename)
+        df = pd.read_csv(filename, index_col=0)
     else:
         print('File does not exist - creating CSV file')
         df = pd.read_sql(query,url)
