@@ -12,7 +12,7 @@ def prep_titanic(dataframe):
     '''
     This function takes in a dataframe & drops the 'embarked', 'class' ,'deck', & 'age' columns, casts the 'pclass' column as a string/an object to make it categorical, & fills the 2 null values in the 'embark_town' column with the most frequent value 'Southampton'. It then returns the prepped dataframe.
     '''
-    df = dataframe.drop(columns=['embarked','class','deck','age'])
+    df = dataframe.drop(columns=['embarked','class','deck','passenger_id','age'])
     df.pclass = df.pclass.astype(object)
     df.embark_town = df.embark_town.fillna('Southampton')
     return df
@@ -24,6 +24,8 @@ def prep_telco(dataframe):
     df = dataframe.drop(columns=['payment_type_id','internet_service_type_id','contract_type_id'])
     df.internet_service_type = df.internet_service_type.fillna('No internet service')
     df.total_charges = df.total_charges.replace(' ','0.0').astype('float')
+    df = df.set_index(df.customer_id)
+    df = df.drop(columns=['customer_id'])
     return df
 
 def split_data(dataframe, col):
