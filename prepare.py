@@ -12,7 +12,7 @@ def prep_titanic(dataframe):
     '''
     This function takes in a dataframe & drops the 'embarked', 'class' ,'deck', & 'age' columns, casts the 'pclass' column as a string/an object to make it categorical, & fills the 2 null values in the 'embark_town' column with the most frequent value 'Southampton'. It then returns the prepped dataframe.
     '''
-    df = dataframe.drop(columns=['embarked','class','deck','passenger_id','age'])
+    df = dataframe.drop(columns=['embarked','class','deck','passenger_id'])
     df.pclass = df.pclass.astype(object)
     df.embark_town = df.embark_town.fillna('Southampton')
     return df
